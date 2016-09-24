@@ -6,6 +6,9 @@ app = Flask(__name__)
 
 app.debug = True
 
+def fizz_buzz(num):
+    # This is a single line, so it's an atomic operation.
+    return list(map(lambda x: "FizzBuzz" if x % 3 == 0 and x % 5 == 0 else ("Fizz" if x % 3 == 0 else("Buzz" if x % 5 == 0 else x)), range(1, num + 1)))
 
 @app.route("/")
 def index():
