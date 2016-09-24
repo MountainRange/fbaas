@@ -13,12 +13,17 @@ def fizz_buzz(num):
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template("index.html", data="")
 
 @app.route("/api/v1")
 @app.route("/api/v1/<index>")
 def data(index):
     return Response(json.dumps({'data': fizz_buzz(int(index))}), mimetype='application/json')
+
+@app.route("/fbaas")
+@app.route("/fbaas/<index>")
+def cool(index):
+    return render_template("index.html", data=str({'data': fizz_buzz(int(index))}))
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=5000)

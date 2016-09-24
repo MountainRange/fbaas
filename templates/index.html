@@ -1,0 +1,14 @@
+<!doctype html>
+<head>
+  <title>FBAAS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="background-color: white;">
+  <script src={{ url_for('static', filename='./js/jquery-2.1.4.min.js') }}></script>
+  <script src={{ url_for('static', filename='main.js') }}></script>
+  <div class="wrapper">
+    {% if data %}
+      {{ data }}
+    {% endif %}
+  </div>
+</body>
