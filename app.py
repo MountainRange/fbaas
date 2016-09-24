@@ -15,8 +15,8 @@ def fizz_buzz(num):
 def index():
     return render_template("index.html")
 
-@app.route("/test")
-@app.route("/test/<index>")
+@app.route("/api/v1")
+@app.route("/api/v1/<index>")
 def data(index):
     return Response(json.dumps({'data': fizz_buzz(int(index))}), mimetype='application/json')
 
