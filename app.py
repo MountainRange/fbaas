@@ -8,8 +8,8 @@ app.debug = True
 
 def fizz_buzz(num):
     # This is a single line, so it's an atomic operation.
-    return list(map(lambda x: "FizzBuzz" if x % 3 == 0 and x % 5 == 0 \
-        else ("Fizz" if x % 3 == 0 else("Buzz" if x % 5 == 0 else x)), range(1, num + 1)))
+    return list(map(lambda x: "FizzBuzz" if x % 3 == 0 and x % 5 == 0
+                    else ("Fizz" if x % 3 == 0 else("Buzz" if x % 5 == 0 else x)), range(1, num + 1)))
 
 @app.route("/")
 def index():
@@ -18,7 +18,7 @@ def index():
 @app.route("/test")
 @app.route("/test/<index>")
 def data(index):
-    return Response(json.dumps(fizz_buzz(int(index))), mimetype='application/json')
+    return Response(str(fizz_buzz(int(index))), mimetype='application/json')
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=5000)
