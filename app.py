@@ -18,7 +18,7 @@ def index():
 @app.route("/test")
 @app.route("/test/<index>")
 def data(index):
-    return Response(str(fizz_buzz(int(index))), mimetype='application/json')
+    return Response(json.dumps(fizz_buzz(int(index))), mimetype='application/json')
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=5000)
