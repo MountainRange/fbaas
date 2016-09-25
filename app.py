@@ -1,6 +1,6 @@
-from flask import Flask, render_template, jsonify, Response, request
-import sys
+from flask import Flask, render_template, Response
 import json
+import time
 
 app = Flask(__name__)
 
@@ -17,7 +17,11 @@ def index():
 @app.route("/api/v1")
 @app.route("/api/v1/<index>")
 def data(index):
-    return Response(json.dumps({'payload': fizz_buzz(int(index))}), mimetype='application/json')
+    return Response(json.dumps({'payload': fizz_buzz(int(index)), 'response': '200 OK',
+                                'time': time.time(),
+                                'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) QtWebEngine/5.7.0 Chrome/49.0.2623.111 Safari/537.36',
+                                'server-load': 0.0, 'response-time': 0.0}),
+                    mimetype='application/json')
 
 @app.route("/fbaas")
 @app.route("/fbaas/<index>")
