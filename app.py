@@ -17,7 +17,7 @@ def index():
 @app.route("/api/v1")
 @app.route("/api/v1/<index>")
 def data(index):
-    return Response(json.dumps({'data': fizz_buzz(int(index))}), mimetype='application/json')
+    return Response(json.dumps({'payload': fizz_buzz(int(index))}), mimetype='application/json')
 
 @app.route("/fbaas")
 @app.route("/fbaas/<index>")
