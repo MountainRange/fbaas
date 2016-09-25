@@ -8,7 +8,7 @@ app.debug = True
 
 def fizz_buzz(num):
     # This is a single line, so it's an atomic operation.
-    return ["FizzBuzz"[i*i%3*4:8--i**4%5] or i for i in range(1, num + 1)]
+    return list(map(lambda i:"FizzBuzz"[i*i%3*4:8--i**4%5] or i, range(1, num + 1)))
 
 @app.route("/")
 def index():
