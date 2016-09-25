@@ -22,7 +22,7 @@ def data(index):
 @app.route("/fbaas")
 @app.route("/fbaas/<index>")
 def cool(index):
-    return render_template("index.html", data=str({'data': fizz_buzz(int(index))}))
+    return render_template("index.html", data=str({'payload': fizz_buzz(int(index))}))
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=5000)
